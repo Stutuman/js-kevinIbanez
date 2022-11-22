@@ -1,0 +1,94 @@
+*{box-sizing: border-box;
+   margin: 0;
+}
+main{
+background-image: url(fondo/cuarto-con-luces-neon-3472.webp);
+background-repeat: no-repeat;
+background-position: center;
+height: auto;
+background-attachment: fixed;
+background-size: cover;
+}
+.navbar{
+background: rgb(176, 246, 227);
+    background: linear-gradient(0deg, rgba(176, 246, 227, 1) 0%, rgba(178, 92, 255, 1) 100%);
+
+}
+/* modal */
+.modal-body{
+    font-size: 20px;
+    display: inline-flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+.modal-body img{
+
+    height: 40px;
+    width: 40px;
+}
+
+
+.productitos{
+    display: flex;
+flex-direction: column;
+    justify-content: center;
+}
+
+
+.title{
+
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    display:flex;
+    justify-content: space-between;
+   
+    text-align: center;
+    color: black;
+    
+    
+}
+
+.encuadre{
+    display: grid;
+        grid-auto-columns: 1fr;
+        grid-auto-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 21px 11px;
+        
+}
+
+.card{
+    width: 12rem !important;
+    height: 400px !important;
+border: solid 8px black !important;
+}
+
+.card-body img{
+    width: 100% !important;
+    height: 30% !important;
+    
+}
+.card-body p {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background-color: #003391e0;
+    border: groove 7px #003391e0;
+   
+}
+.card-body h5{
+    text-align: center !important;
+}
+
+.card button {
+    display: inline-flex !important;
+        justify-content: center !important;
+}
+.card:hover {
+    background-color: rgba(5, 8, 44, 0.664);
+    color: #ffffffe0;
+    text-shadow: 6px 6px 8px black;
+}
+
+/* boton */
+

@@ -1,98 +1,66 @@
-carrito = []
-const opcion = mostrarMenu();
-const variedad = "";
-const elegir = 0;
-dineroIngresado = 0;
+const contenedor = document.querySelector("#productos");
+const carrito = [];
+const containerShop = document.querySelector(".productitos")
+const costo = document.querySelector(".total")
 
-
- class Product {
-    constructor(articulo, precio, disponibilidad) {
-        this.articulo = articulo;
-        this.precio = precio;
-        this.disponibilidad = disponibilidad;
+stockProductos.forEach((productos) => {
+    if(productos.stock === 0){
+        return
     }
-         }
+const div = document.createElement('div')
+div.className = 'card card-body'
+div.innerHTML = `
+                
+                
+                <img src="${productos.img}" class="card-img-top" alt="...">
+                    <h5 class="card-title">${productos.nombre}</h5>
+                    <p class="card-text"> ${productos.precio} USD</p>
+                    
+                
 
+`
+const button = document.createElement('button')
+    button.className = "btn btn-primary"
+    button.innerHTML = `Agregar al carrito`
 
-//productos
+    button.addEventListener('click', () => {
+        agregarAlCarrito(productos.id)
+    })
 
-const product1 = new Product ("auriculares",30,"true");
-const product2 = new Product ("teclado",25,true);
-const product3 = new Product ("mouse",45,true);
-const product4 = new Product ("webcam", 7,true);
+    div.append(button)
+contenedor.append(div)
+})
 
-if (opcion != 5) {
-    venderProducto(opcion);
-}
-else {
-    alert("GRACIAS");
-}
-
-function mostrarMenu(){
-return prompt(`que desea agregar al carrito?
-1.auriculares 30
-2.teclado 25
-3. mouse 45
-4. webcam 7
-5. salir`);
-}
-
-
-function venderProducto (opcion){
-    switch(opcion){
-case "1":
-{
-    carrito.push(product1)
-pedirDinero(30)
-    break;
-}
-case "2":
-    {
-        carrito.push(product2)
-        pedirDinero(25)
-        break;      
-    }
-case "3":
-    {
-        carrito.push(product3)
-        pedirDinero(45)
-        break;
-    }
-    
-case "4":
- {   
-        carrito.push(product4)
-        pedirDinero(7)
-        break;
- }  
-    default:
-  {      
-        alert("no eligio producto")
-        break;
-  }     
-    }
-    pedirDinero()
-}
-function pedirDinero(numMin) {
-        
-
-       while (dineroIngresado < numMin) {
-        let dinero = Number(prompt("Ingrese un monto"));
-
-        if (dinero < numMin) {
-            alert("monto invalido")
-        }
-        else {
-            dineroIngresado += dinero;
-        }
-    }
-    
-
-    let cambio = dineroIngresado - numMin;
-
-    alert("Su cambio es: " + cambio + ". GRACIAS!");
-
-    console.log("compra realizada");
+const agregarAlCarrito = (id) => {
+    const producto = stockProductos.find( (item) => item.id === id )
+    carrito.push(producto)
+    console.log(carrito)
+    renderShop()
+    renderTotalCarrito()
 }
 
-console.log(carrito)
+const renderShop = () =>{
+containerShop.innerHTML = ' ' 
+    carrito.forEach((producto)=>{
+
+    const div = document.createElement('div')
+    div.className = "modal-body"
+    div.innerHTML = `
+    <img src="${producto.img}" alt="">
+                        <p>${producto.nombre}</p>
+                        <p>Precio: ${producto.precio}</p>
+                        
+    `
+containerShop.append(div)
+})
+}
+
+const renderTotalCarrito = () => {
+    let total = 0
+
+    carrito.forEach((producto) => {
+        total += producto.precio
+    })
+
+    costo.innerText = "costo total:" + total + " USD"
+}
