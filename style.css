@@ -1,7 +1,7 @@
 *{box-sizing: border-box;
    margin: 0;
 }
-main{
+.normalPage{
 background-image: url(fondo/cuarto-con-luces-neon-3472.webp);
 background-repeat: no-repeat;
 background-position: center;
@@ -9,10 +9,18 @@ height: auto;
 background-attachment: fixed;
 background-size: cover;
 }
+.dark-mode{
+    background-image: url(fondo/cuarto-con-luces-neon-3472.webp);
+        background-repeat: no-repeat;
+        background-position: center;
+        height: auto;
+        background-attachment: fixed;
+        background-size: cover;
+}
 .navbar{
-background: rgb(176, 246, 227);
-    background: linear-gradient(0deg, rgba(176, 246, 227, 1) 0%, rgba(178, 92, 255, 1) 100%);
-
+background: rgb(110, 37, 145);
+    background: linear-gradient(0deg, rgba(110, 37, 145, 1) 25%, rgba(255, 255, 255, 1) 100%);
+    
 }
 /* modal */
 .modal-body{
@@ -21,12 +29,15 @@ background: rgb(176, 246, 227);
     justify-content: space-around;
     padding: 10px;
 }
+
 .modal-body img{
 
     height: 40px;
     width: 40px;
 }
-
+.modal-body:hover{
+background-color: rgba(128, 128, 128, 0.692);
+}
 
 .productitos{
     display: flex;
@@ -91,4 +102,9 @@ border: solid 8px black !important;
 }
 
 /* boton */
-
+.boton{
+    color: black;
+    background-color: violet;
+    border: 5px;
+    border-radius: 10px;
+}
